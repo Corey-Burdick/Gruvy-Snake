@@ -115,6 +115,9 @@ public:
     InitAudioDevice();
     eatSound = LoadSound("sounds/eat.mp3");
     wallSound = LoadSound("sounds/wall.mp3");
+
+    SetSoundVolume(eatSound, (float)0.5);
+    SetSoundVolume(wallSound, (float)0.5);
   }
 
   ~Game() {
@@ -180,6 +183,8 @@ public:
 
 int main() {
   InitWindow(2*offset + cellSize*cellCount, 2*offset + cellSize*cellCount, "Snake Game");
+  Image icon = LoadImage("assets/foodSprite.png");
+  SetWindowIcon(icon);
   SetTargetFPS(60);
 
   Game game = Game();
@@ -221,7 +226,8 @@ int main() {
     game.Draw();
     EndDrawing();
   }
-  
+ 
+  UnloadImage(icon);
   UnloadMusicStream(music);
   CloseWindow();
 
