@@ -1,0 +1,3 @@
+build/*
+!build/sounds/
+!build/assets/

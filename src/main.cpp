@@ -184,8 +184,13 @@ int main() {
 
   Game game = Game();
 
+  Music music = LoadMusicStream("sounds/track1.ogg");
+  music.looping = true;
+  PlayMusicStream(music);
+
   while (!WindowShouldClose()) {
     ClearBackground(GBGREEN);
+    UpdateMusicStream(music);
     
     if (eventTriggered(0.2)) {
       game.Update();
@@ -216,7 +221,8 @@ int main() {
     game.Draw();
     EndDrawing();
   }
-
+  
+  UnloadMusicStream(music);
   CloseWindow();
 
   return 0;
