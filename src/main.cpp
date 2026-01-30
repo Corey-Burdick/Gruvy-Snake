@@ -185,7 +185,7 @@ int main() {
   InitWindow(2*offset + cellSize*cellCount, 2*offset + cellSize*cellCount, "Snake Game");
   Image icon = LoadImage("assets/foodSprite.png");
   SetWindowIcon(icon);
-  SetTargetFPS(60);
+  SetTargetFPS(120);
 
   Game game = Game();
 
