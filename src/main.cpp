@@ -107,6 +107,7 @@ public:
   Snake player = Snake();
   Food food = Food(player.body);
   bool running = true;
+  bool paused = false;
   int score = 0;
   Sound eatSound;
   Sound wallSound;
@@ -197,7 +198,7 @@ int main() {
     ClearBackground(GBGREEN);
     UpdateMusicStream(music);
     
-    if (eventTriggered(0.2)) {
+    if (eventTriggered(0.2) && game.paused == false) {
       game.Update();
     }
 
@@ -216,6 +217,13 @@ int main() {
     if (IsKeyPressed(KEY_RIGHT) && game.player.direction.x != -1) {
       game.player.direction = {1, 0};
       game.running = true;
+    }
+    if (IsKeyPressed(KEY_Q)) {
+      if (game.paused == true) {
+        game.paused = false;
+      } else {
+        game.paused = true;
+      }
     }
 
     // Drawing
