@@ -132,6 +132,10 @@ public:
     food.Draw();
     player.Draw();
 
+    if (paused) {
+      DrawRectangle(0, 0, GetScreenWidth(), GetScreenHeight(), (Color){GBGREEN.r, GBGREEN.g, GBGREEN.b, 100});
+    }
+
   }
 
   void Update() {
