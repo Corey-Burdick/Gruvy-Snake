@@ -206,19 +206,19 @@ int main() {
       game.Update();
     }
 
-    if (IsKeyPressed(KEY_UP) && game.player.direction.y != 1) {
+    if (IsKeyPressed(KEY_UP) && game.player.direction.y != 1 && !game.paused) {
       game.player.direction = {0, -1};
       game.running = true;
     }
-    if (IsKeyPressed(KEY_DOWN) && game.player.direction.y != -1) {
+    if (IsKeyPressed(KEY_DOWN) && game.player.direction.y != -1 && !game.paused) {
       game.player.direction = {0, 1};
       game.running = true;
     }
-    if (IsKeyPressed(KEY_LEFT) && game.player.direction.x != 1) {
+    if (IsKeyPressed(KEY_LEFT) && game.player.direction.x != 1 && !game.paused) {
       game.player.direction = {-1, 0};
       game.running = true;
     }
-    if (IsKeyPressed(KEY_RIGHT) && game.player.direction.x != -1) {
+    if (IsKeyPressed(KEY_RIGHT) && game.player.direction.x != -1 && !game.paused) {
       game.player.direction = {1, 0};
       game.running = true;
     }
