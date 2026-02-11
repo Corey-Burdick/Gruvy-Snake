@@ -233,7 +233,11 @@ int main() {
     // Drawing
     BeginDrawing();
     DrawRectangleLinesEx(Rectangle{(float)offset-5, (float)offset-5, (float)cellSize*cellCount+10, (float)cellSize*cellCount+10}, 5, GRUVORANGE);
-    DrawText("GRUVY SNAKE", offset - 5, 20, 40, GRUVORANGE);
+    if (!game.paused) {
+      DrawText("GRUVY SNAKE", offset - 5, 20, 40, GRUVORANGE);
+    } else {
+      DrawText("PAUSED", offset - 5, 20, 40, GRUVORANGE);
+    }
     DrawText(TextFormat("SCORE: %i", game.score), offset - 5, offset + cellSize * cellCount + 10, 40, GRUVORANGE);
     game.Draw();
     EndDrawing();
